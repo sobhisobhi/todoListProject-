@@ -1,0 +1,8 @@
+.*
+/node_modules/
+/release/
+/out/
+/coverage/
+/lcov/
+/dev_server/restservice/**/*.json
+/src/plainjs/
