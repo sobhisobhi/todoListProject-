@@ -4,29 +4,30 @@ import uuid from "uuid";
 import NewTodoForm from "./NewTodoForm";
 import Todo from "./Todo";
 
+const initialList = [
+    {
+        id: uuid(),
+        taskName: "Envoyer un email",
+        taskDescription: "A toute l'équipe",
+        taskCompleted: false,
+    },
+    {
+        id: uuid(),
+        taskName: "Faire l'exercice",
+        taskDescription: "React only",
+        taskCompleted: true,
+    },
+];
+
 function TodoList() {
-    const [todos, setTodos] = useState([
-        {
-            id: uuid(),
-            taskName: "task 10",
-            taskDescription: "description 10",
-            taskCompleted: false,
-        },
-        {
-            id: uuid(),
-            taskName: "task 2",
-            taskDescription: "description 2",
-            taskCompleted: true,
-        },
-    ]);
+    const [todos, setTodos] = useState(initialList);
 
     const create = (newTodo) => {
         setTodos([...todos, newTodo]);
     };
 
     const remove = (id) => {
-        const newTodos = [...todos];
-        newTodos.splice(id, 1);
+        const newTodos = todos.filter((item) => item.id !== id);
         setTodos(newTodos);
     };
 

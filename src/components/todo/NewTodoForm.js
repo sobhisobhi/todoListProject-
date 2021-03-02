@@ -22,17 +22,20 @@ function NewTodoForm({ createTodo }) {
             taskDescription: description,
             completed: false,
         };
-        createTodo(newTodo);
+        if (newTodo.taskName && newTodo.taskDescription) {
+            createTodo(newTodo);
+        }
         setName("");
         setDescription("");
     };
 
     return (
-        <form className="NewTodoForm" onSubmit={handleSubmit}>
+        <form className="NewTodoForm" noValidate onSubmit={handleSubmit}>
             <h1>Créer une nouvelle tâche </h1>
             <div>
                 <TextField
                     id="task"
+                    required
                     label="Nom de la tâche"
                     value={name}
                     onChange={handleChangeName}
@@ -44,6 +47,7 @@ function NewTodoForm({ createTodo }) {
                 />
                 <TextField
                     id="task"
+                    required
                     label="Description de la tâche en une ligne"
                     value={description}
                     onChange={handleChangeDescription}
@@ -62,14 +66,6 @@ function NewTodoForm({ createTodo }) {
                     Ajouter la tâche
                 </Button>
             </div>
-            {/*<input
-                value={userInput.task}
-                onChange={handleChange}
-                id="task"
-                type="text"
-                name="task"
-                placeholder="New Todo"
-            />*/}
         </form>
     );
 }

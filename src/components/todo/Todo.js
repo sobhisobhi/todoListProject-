@@ -23,7 +23,8 @@ function Todo({ todo, remove, update }) {
     );
     const [taskCompleted, setTaskCompleted] = useState(todo.taskCompleted);
     const handleRemove = (evt) => {
-        remove(evt.target.id);
+        evt.preventDefault();
+        remove(todo.id);
     };
     const toggleFrom = () => {
         setIsEditing(!isEditing);
