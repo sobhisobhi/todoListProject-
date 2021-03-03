@@ -8,7 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import { useFormik } from "formik";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 
 import { encryptWithAES } from "../utils/encrypt";
 
@@ -56,7 +55,6 @@ const useStyles = makeStyles((theme) => ({
 const INITIAL_STATE = {};
 
 const Login = ({ setToken }) => {
-    const history = useHistory();
     const classes = useStyles();
     const [error, setError] = useState(INITIAL_STATE);
 
@@ -67,20 +65,6 @@ const Login = ({ setToken }) => {
             email: "",
         },
         validate,
-        /*onSubmit: async ({ email, password }) => {
-            const data = await loginUser(email, password);
-            if (data.token) {
-                localStorage.email = formik.values.email;
-                localStorage.password = encryptWithAES(formik.values.password);
-                setToken(data.token);
-                localStorage.setItem("token", data.token);
-                console.log("ccccc=>", data.token);
-                history.push("/home");
-                //window.location.reload("/home");
-            } else {
-                setError(data.error);
-            }
-        },*/
         onSubmit: async () => {
             const data = await loginUser(
                 formik.values.email,
@@ -180,12 +164,6 @@ const Login = ({ setToken }) => {
                             className={classes.submit}
                         >
                             Se connecter
-                        </Button>
-                        <Button
-                            color="primary"
-                            onClick={() => history.push("/resetPassword")}
-                        >
-                            Mot de passe oublié ?
                         </Button>
                     </form>
                 </div>

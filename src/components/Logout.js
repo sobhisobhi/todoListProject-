@@ -1,12 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Loader from "react-loader-spinner";
 
 const Logout = () => {
-    useEffect(() => {
-        return () => {
-            //history.push("/login");
-        };
-    }, []);
     const [loading, setLoading] = useState(true);
 
     return (
@@ -15,10 +10,6 @@ const Logout = () => {
                 {loading ? (
                     <div
                         style={{
-                            /* position: "fixed",
-                            top: "50%",
-                            left: "50%",
-                            transform: "translate(10px)" */
                             margin: "auto",
                             display: "flex",
                             position: "absolute",
@@ -27,11 +18,6 @@ const Logout = () => {
                         }}
                     >
                         <Loader
-                            /* color="#0000FF"
-                            secondaryColor="#496e9c"
-                            type="MutatingDots"
-                            width={100}
-                            height={100} */
                             color="#00BFFF"
                             type="Rings"
                             height={200}

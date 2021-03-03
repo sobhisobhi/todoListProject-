@@ -3,21 +3,12 @@ import "../styles/navbar.css";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-//import history from "./history";
-
 const Header = () => {
     const logout = () => {
-        //sessionStorage.removeItem("token");
         sessionStorage.clear();
-        //localStorage.removeItem("password");
-        //localStorage.removeItem("email");
-        //localStorage.removeItem("remember");
         localStorage.clear();
         sessionStorage.removeItem("token");
         window.location.reload(false);
-        /*setTimeout(() => {
-            history.replace("/");
-        }, 200);*/
     };
     return (
         <React.Fragment>

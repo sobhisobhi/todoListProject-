@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post("/login", (req, res) => {
-    if (req.body.email === "saber@gmail.com" && req.body.password === "test") {
+    if (req.body.email === "test@test.com" && req.body.password === "test") {
         res.send({
             token: "test123",
         });

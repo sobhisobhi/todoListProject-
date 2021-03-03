@@ -4,13 +4,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import AppRouter from "../src/router/AppRouter";
-//import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
     <React.StrictMode>
         <AppRouter />
-        {/*<App />*/}
     </React.StrictMode>,
     document.getElementById("root")
 );

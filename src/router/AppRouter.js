@@ -8,28 +8,10 @@ import Login from "../components/Login";
 import Logout from "../components/Logout";
 import useToken from "../components/useToken";
 
-/*const PrivateRoute = ({ component: Component, ...rest }) => {
-    <Route
-        {...rest}
-        render={(props) =>
-            sessionStorage.getItem("userToken") ? (
-                <Component {...props} />
-            ) : (
-                <Redirect
-                    to={{
-                        pathname: "/login",
-                    }}
-                />
-            )
-        }
-    />;
-};*/
-
 const AppRouter = () => {
     const { token, setToken } = useToken();
     if (!token) {
         return <Login setToken={setToken} />;
-        //return <Login setToken={token} />;
     }
     return (
         <BrowserRouter>
