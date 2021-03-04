@@ -10,13 +10,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post("/login", (req, res) => {
-    if (req.body.email === "test@test.com" && req.body.password === "test") {
+    try {
+        if (
+            req.body.email === "test@test.com" &&
+            req.body.password === "test"
+        ) {
+            res.send({
+                token: "test123",
+            });
+        } else {
+            res.send({
+                error: "verify your credentials email and password !!!",
+            });
+        }
+    } catch (error) {
         res.send({
-            token: "test123",
-        });
-    } else {
-        res.send({
-            error: "verify credentials",
+            error: error.message,
         });
     }
 });
